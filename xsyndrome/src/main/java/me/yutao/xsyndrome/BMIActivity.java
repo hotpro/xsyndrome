@@ -14,20 +14,21 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+
+@EActivity(R.layout.bmi_layout)
 public class BMIActivity extends Activity {
 	private static final String TAG = "Bmi";
     
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.v(TAG,"onCreate");
-		setContentView(R.layout.bmi_layout);
-
-		findViews();
-		setListensers();
 	}
 	
 	@Override
@@ -42,16 +43,8 @@ public class BMIActivity extends Activity {
 		
 		super.onPause();
 		Log.v(TAG,"onPause");
-//		SharedPreferences settings = getSharedPreferences(PREF, 0);
-//		Editor editor = settings.edit();
-//		editor.putString(PREF_HEIGHT, field_height.getText().toString());
-//		editor.commit();
 		
-//        settings.edit()
-//            .putString(PREF_HEIGHT, field_height.getText().toString())
-//            .commit();
-		
-		Pref.setHeight(this, field_height.getText().toString());
+		Pref.setHeight(this, height.getText().toString());
 	}
 
 	@Override
@@ -83,69 +76,74 @@ public class BMIActivity extends Activity {
 		Log.v(TAG,"onStop");
 	}
 
-	private Button button_calc;
-	private EditText field_height;
-	private EditText field_weight;
-	private TextView view_result;
-	private TextView view_suggest;
+    @ViewById
+	Button submit;
 
-	private void findViews() {
-		if(Debug.On) Log.d(TAG, "find Views");
-		button_calc = (Button) findViewById(R.id.submit);
-	    field_height = (EditText) findViewById(R.id.height);
-	    field_weight = (EditText) findViewById(R.id.weight);
-	    view_result = (TextView) findViewById(R.id.result);
-	    view_suggest = (TextView) findViewById(R.id.suggest);
-	}
+    @ViewById
+	EditText height, weight, waist;
+
+    @ViewById
+	TextView result, suggest;
+
+    @ViewById
+    RadioGroup gender;
 
 	// Restore preferences
     private void restorePrefs() {
-//        SharedPreferences settings = getSharedPreferences(PREF, 0);
-//        String pref_height = settings.getString(PREF_HEIGHT, "");
     	String pref_height = Pref.getHeight(this);
     	if(! "".equals(pref_height)) {
-            field_height.setText(pref_height);
-            field_weight.requestFocus();
+            height.setText(pref_height);
+            weight.requestFocus();
         }
     }
-    
-	//Listen for button clicks
-	private void setListensers() {
-		if(Debug.On) Log.d(TAG, "set Listensers");
-		button_calc.setOnClickListener(calcBMI);
-	}
-	
-	private OnClickListener calcBMI = new OnClickListener() {
-		public void onClick(View v) {
-			DecimalFormat nf = new DecimalFormat("0.00");
-			try {
-				double height = Double
-						.parseDouble(field_height.getText().toString()) / 100;
-				double weight = Double
-						.parseDouble(field_weight.getText().toString());
-				double BMI = weight / (height * height);
-	
-				//Present result
-				view_result.setText(getText(R.string.bmi_result) + nf.format(BMI));
-	
-				// Give health advice
-				if (BMI > 25) {
-					view_suggest.setText(R.string.advice_heavy);
-				} else if (BMI < 20) {
-					view_suggest.setText(R.string.advice_light);
-				} else {
-					view_suggest.setText(R.string.advice_average);
-				}
-				
-			} catch(Exception err) {
-				Log.e(TAG, "error: " + err.toString());
-				Toast toast = Toast.makeText(BMIActivity.this, R.string.input_error, Toast.LENGTH_SHORT);
-				toast.show();
-			}
-		}
-	};
 
-	
+    @Click
+    void submit(View view) {
+        DecimalFormat nf = new DecimalFormat("0.00");
+        try {
+            double height = Double
+                    .parseDouble(this.height.getText().toString()) / 100;
+            double weight = Double
+                    .parseDouble(this.weight.getText().toString());
+            double BMI = weight / (height * height);
+
+            //Present result
+            result.setText(getText(R.string.bmi_result) + nf.format(BMI));
+
+            StringBuilder sb = new StringBuilder();
+            // Give health advice
+            if (BMI > 25) {
+                sb.append(getString(R.string.advice_heavy));
+            } else if (BMI < 20) {
+                sb.append(getString(R.string.advice_light));
+            } else {
+                sb.append(getString(R.string.advice_average));
+            }
+
+            int w = Integer.parseInt(this.waist.getText().toString());
+            switch (gender.getCheckedRadioButtonId()) {
+                case  R.id.male:
+                    if (w > 90) {
+                        sb.append(getString(R.string.bmi_waist_heavy));
+                    }
+                    break;
+                case R.id.female:
+                    if (w > 80) {
+                        sb.append(getString(R.string.bmi_waist_heavy));
+                    }
+                    break;
+            }
+
+            suggest.setText(sb.toString());
+
+
+        } catch(Exception err) {
+            Log.e(TAG, "error: " + err.toString());
+            Toast toast = Toast.makeText(BMIActivity.this, R.string.input_error, Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
 	protected static final int MENU_ABOUT = Menu.FIRST;
 	protected static final int MENU_QUIT = Menu.FIRST+1;
 }

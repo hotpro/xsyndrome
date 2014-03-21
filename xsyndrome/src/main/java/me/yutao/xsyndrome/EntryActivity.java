@@ -21,12 +21,10 @@ public class EntryActivity extends BaseActivity implements OnClickListener {
 		setListener();
 	}
 
-	@Override
 	public void init() {
 
 	}
 
-	@Override
 	public void getView() {
 		menu1 = (TextView)findViewById(R.id.menu1);
 		menu2 = (TextView)findViewById(R.id.menu2);
@@ -34,7 +32,6 @@ public class EntryActivity extends BaseActivity implements OnClickListener {
 		menu4 = (TextView)findViewById(R.id.menu4);
 	}
 
-	@Override
 	public void setListener() {
 		menu1.setOnClickListener(this);
 		menu2.setOnClickListener(this);

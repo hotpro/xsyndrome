@@ -7,6 +7,30 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:text="@string/gender" />
+
+    <RadioGroup
+        android:id="@+id/gender"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/male"/>
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:text="@string/bmi_height" />
 
     <EditText
@@ -23,6 +47,19 @@
 
     <EditText
         android:id="@+id/weight"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:text="" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bmi_waist" />
+
+    <EditText
+        android:id="@+id/waist"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"

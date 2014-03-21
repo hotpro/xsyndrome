@@ -16,12 +16,14 @@ public class SubActivity extends EntryActivity {
 
 	@Override
 	public void onClickMenu1() {
+        Intent intent = new Intent(this, BloodPressureActivity_.class);
+        startActivity(intent);
 		
 	}
 
 	@Override
 	public void onClickMenu2() {
-		Intent intent = new Intent(this, BMIActivity.class);
+		Intent intent = new Intent(this, BMIActivity_.class);
 		startActivity(intent);
 	}
 

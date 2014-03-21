@@ -9,4 +9,17 @@
     <string name="input_error">打错了吗？只能输入数字喔</string>
     <string name="ok_label">确认</string>
     <string name="homepage_label">首页</string>
+    <string name="bp_systolic">收缩压（mmHg）</string>
+    <string name="bp_diastolic">舒张压（mmHg）</string>
+    <string name="bp_btn">计算血压</string>
+    <string name="bp_normal">正常血压</string>
+    <string name="bp_high_level_3">3级高血压（重度）</string>
+    <string name="bp_high_level_2">2级高血压（中度）</string>
+    <string name="bp_high_level_1">1级高血压（轻度）</string>
+    <string name="bp_high_normal">正常高值</string>
+    <string name="gender">性别</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="bmi_waist">腰围（cm）（可选）</string>
+    <string name="bmi_waist_heavy">腹型肥胖</string>
 </resources>

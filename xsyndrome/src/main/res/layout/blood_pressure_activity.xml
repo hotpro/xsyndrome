@@ -7,10 +7,10 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bmi_height" />
+        android:text="@string/bp_systolic" />
 
     <EditText
-        android:id="@+id/height"
+        android:id="@+id/systolic"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -19,10 +19,10 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bmi_weight" />
+        android:text="@string/bp_diastolic" />
 
     <EditText
-        android:id="@+id/weight"
+        android:id="@+id/diastolic"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
@@ -33,7 +33,7 @@
         android:id="@+id/submit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bmi_btn" />
+        android:text="@string/bp_btn" />
 
     <TextView
         android:id="@+id/result"
