@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/type"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_kongfu_bs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kongfu_bs"/>
+        <RadioButton
+            android:id="@+id/rb_suiji_bs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/suiji_bs"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/label_kongfu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/kongfu_bs" />
+
+    <EditText
+        android:id="@+id/kongfu_bs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="6.0" />
+
+    <TextView
+        android:id="@+id/label_suiji"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/suiji_bs" />
+
+    <EditText
+        android:id="@+id/suiji_bs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:text="7.2" />
+
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bs_btn" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/suggest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/solution"
+        android:visibility="gone"
+        android:text="@string/solution"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

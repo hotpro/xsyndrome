@@ -24,13 +24,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".SubActivity" />
-        <activity android:name=".BMIActivity_" >
+        <activity android:name=".BMIActivity_"
+            android:label="@string/fat">
         </activity>
         <activity android:name=".Pref" >
         </activity>
 
-        <activity android:name=".BloodPressureActivity_" >
+        <activity android:name=".BloodPressureActivity_"
+            android:label="@string/blood_pressure">
         </activity>
+        <activity android:name=".BloodSugarActivity_"
+            android:label="@string/blood_sugar">
+        </activity>
+        <activity android:name=".BloodFatActivity_"
+            android:label="@string/blood_fat"/>
 
     </application>
 

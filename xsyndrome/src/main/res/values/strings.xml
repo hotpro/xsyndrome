@@ -22,4 +22,29 @@
     <string name="female">女</string>
     <string name="bmi_waist">腰围（cm）（可选）</string>
     <string name="bmi_waist_heavy">腹型肥胖</string>
+    <string name="bmi_fat">肥胖</string>
+    <string name="bmi_heavey">超重</string>
+    <string name="bmi_normal">正常体重</string>
+    <string name="solution">治疗</string>
+    <string name="more">欲知更多详情，敬请垂询购书（18818260520、021-65986812）：文秀英、卢坤主编《肥胖症：从基础到临床》北京大学医学出版社、《专家诊治肥胖》上海科技文献出版社</string>
+    <string name="kongfu_bs">空腹血糖</string>
+    <string name="suiji_bs">随机血糖（餐后2小时）</string>
+    <string name="bs_btn">计算血糖</string>
+    <string name="bs_diabetes">糖尿病</string>
+    <string name="bs_kongfu_bs_shousun">空腹血糖受损</string>
+    <string name="bs_normal">血糖正常</string>
+    <string name="bs_nailing_yichang">血糖耐量异常(IGT)</string>
+    <string name="bf_zongdanguzhun">血总胆固醇浓度</string>
+    <string name="bf_sanxianganyou">血三酰甘油浓度</string>
+    <string name="bf_ldc">血LDL-C浓度</string>
+    <string name="bf_btn">计算血脂</string>
+    <string name="bf_gaodanguchun">高胆固醇血症</string>
+    <string name="bf_gaosanxianganyou">高三酰甘油血症</string>
+    <string name="bf_zhidanbai">低密度脂蛋白胆固醇升高</string>
+    <string name="diagnose">免费诊断</string>
+    <string name="blood_pressure">血压</string>
+    <string name="fat">肥胖</string>
+    <string name="blood_sugar">血糖</string>
+    <string name="blood_fat">血脂</string>
+
 </resources>

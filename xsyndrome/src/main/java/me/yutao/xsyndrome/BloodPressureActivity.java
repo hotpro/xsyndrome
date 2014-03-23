@@ -17,7 +17,7 @@ public class BloodPressureActivity extends BaseActivity {
     TextView systolic, diastolic, result, suggest;
 
     @ViewById
-    Button submit;
+    Button submit, solution;
 
 
     @Override
@@ -54,7 +54,12 @@ public class BloodPressureActivity extends BaseActivity {
         } else if (bpSystolic >= 120 || bpDiastolic >= 80) {
             result.setText(R.string.bp_high_normal);
         }
+        solution.setVisibility(View.VISIBLE);
     }
 
+    @Click
+    void solution() {
+        showSolutionFragment(R.string.bp_advice);
+    }
 
 }

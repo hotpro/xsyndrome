@@ -38,7 +38,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:text="" />
+        android:text="175" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:singleLine="true"
-        android:text="" />
+        android:text="70" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -83,5 +83,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="" />
+
+    <Button
+        android:id="@+id/solution"
+        android:visibility="gone"
+        android:text="@string/solution"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -1,17 +1,9 @@
 package me.yutao.xsyndrome;
 
-import java.text.DecimalFormat;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -22,10 +14,15 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.text.DecimalFormat;
+
 @EActivity(R.layout.bmi_layout)
-public class BMIActivity extends Activity {
+public class BMIActivity extends BaseActivity {
 	private static final String TAG = "Bmi";
-    
+
+    @ViewById
+    Button solution;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -107,35 +104,38 @@ public class BMIActivity extends Activity {
                     .parseDouble(this.weight.getText().toString());
             double BMI = weight / (height * height);
 
-            //Present result
-            result.setText(getText(R.string.bmi_result) + nf.format(BMI));
-
             StringBuilder sb = new StringBuilder();
+            sb.append(getString(R.string.bmi_result)).append(nf.format(BMI)).append('，');
+
             // Give health advice
             if (BMI > 25) {
-                sb.append(getString(R.string.advice_heavy));
+                sb.append(getString(R.string.bmi_fat));
             } else if (BMI < 20) {
-                sb.append(getString(R.string.advice_light));
+                sb.append(getString(R.string.bmi_heavey));
             } else {
-                sb.append(getString(R.string.advice_average));
+                sb.append(getString(R.string.bmi_normal));
+            }
+            sb.append('。');
+            if (!TextUtils.isEmpty(this.waist.getText().toString())) {
+
+                int w = Integer.parseInt(this.waist.getText().toString());
+                switch (gender.getCheckedRadioButtonId()) {
+                    case R.id.male:
+                        if (w > 90) {
+                            sb.append(getString(R.string.bmi_waist_heavy));
+                        }
+                        break;
+                    case R.id.female:
+                        if (w > 80) {
+                            sb.append(getString(R.string.bmi_waist_heavy));
+                        }
+                        break;
+                }
+                sb.append('。');
             }
 
-            int w = Integer.parseInt(this.waist.getText().toString());
-            switch (gender.getCheckedRadioButtonId()) {
-                case  R.id.male:
-                    if (w > 90) {
-                        sb.append(getString(R.string.bmi_waist_heavy));
-                    }
-                    break;
-                case R.id.female:
-                    if (w > 80) {
-                        sb.append(getString(R.string.bmi_waist_heavy));
-                    }
-                    break;
-            }
-
-            suggest.setText(sb.toString());
-
+            result.setText(sb.toString());
+            solution.setVisibility(View.VISIBLE);
 
         } catch(Exception err) {
             Log.e(TAG, "error: " + err.toString());
@@ -144,6 +144,8 @@ public class BMIActivity extends Activity {
         }
     }
 
-	protected static final int MENU_ABOUT = Menu.FIRST;
-	protected static final int MENU_QUIT = Menu.FIRST+1;
+    @Click
+    void solution() {
+        showSolutionFragment(R.string.bmi_advice);
+    }
 }

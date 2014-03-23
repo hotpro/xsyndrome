@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bf_zongdanguzhun" />
+
+    <EditText
+        android:id="@+id/bf_zongdanguchun"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="5.12" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bf_sanxianganyou" />
+
+    <EditText
+        android:id="@+id/bf_sanxianganyou"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:text="2.2" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bf_ldc" />
+
+    <EditText
+        android:id="@+id/bf_ldc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:text="3.21" />
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bf_btn" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/suggest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/solution"
+        android:visibility="gone"
+        android:text="@string/solution"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

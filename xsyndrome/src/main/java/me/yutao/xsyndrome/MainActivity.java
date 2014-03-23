@@ -8,11 +8,12 @@ public class MainActivity extends EntryActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        menu2.setText(getString(R.string.diagnose));
 	}
 
 	@Override
 	public void onClickMenu1() {
-		
+
 	}
 
 	@Override
